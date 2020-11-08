@@ -32,12 +32,12 @@ public class BackgroundDetectedActivitiesService extends Service {
 
     public BackgroundDetectedActivitiesService() {
 
-    }
+        }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        mActivityRecognitionClient = new ActivityRecognitionClient(this);
+        @Override
+        public void onCreate() {
+            super.onCreate();
+            mActivityRecognitionClient = new ActivityRecognitionClient(this);
         mIntentService = new Intent(this, DetectedActivitiesIntentService.class);
         mPendingIntent = PendingIntent.getService(this, 1, mIntentService, PendingIntent.FLAG_UPDATE_CURRENT);
         requestActivityUpdatesButtonHandler();
